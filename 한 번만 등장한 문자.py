@@ -1,0 +1,68 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120896
+def solution(s):
+    # 문자열 s
+    # in으로 확인하기
+    answer = ''
+    s_list = {}
+    for i in s:
+        if i not in s_list:
+            s_list[i] = 1
+        elif i in s_list:
+            s_list[i] += 1
+    # for문의 순서 = key를 기준으로 sort된 s_list로 사용
+    for i in sorted(s_list.keys()):
+        # value 값이 1이면
+        if s_list[i] == 1:
+            answer += i
+    return answer
+
+
+def solution(s):
+    s_dict = {}
+    for i in s:
+        # s_dict에 없다면
+        if i not in s_dict:
+            s_dict[i] = 1
+        # s_dict에 있다면
+        elif i in s_dict:
+            s_dict[i] += 1
+        # if 값이 1인 key를 정렬해서 리스트화
+        # ''.join()으로 리스트 언패킹
+    return ''.join([i for i in sorted(s_dict.keys()) if s_dict[i] == 1])
+
+
+def solution(s):
+    answer = []
+    pop_list = []
+    for i in s:
+        # answer에 i가 없다면
+        if i not in answer:
+            answer.append(i)
+        # answer에 i가 있다면
+        else:
+            pop_list.append(i)
+    for p in pop_list:
+        try:
+            # 전체 리스트에서 index찾기
+            pop_index = answer.index(p)
+            # 전체 리스트에서 빼기
+            answer.pop(pop_index)
+            # del로 같은 결과 가능
+            # del answer[pop_index]
+            # 없는 값 pop 에러 핸들링
+        except ValueError:
+            pass
+    return ''.join(sorted(answer))
+
+
+def solution(s):
+    # for문 = set()으로 중복을 제거하고 sorted()로 정렬된 s
+    # i = count로 확인된 숫자가 1개인 변수
+    return ''.join([i for i in sorted(set(s)) if s.count(i) == 1])
+
+
+print(solution("abcabcadc"))
+# print(solution("abdc"))
+print(pow(2, 10))
+print(pow(2, 0))
+print(pow(2, 1))
