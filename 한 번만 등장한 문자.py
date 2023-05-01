@@ -41,28 +41,25 @@ def solution(s):
         # answer에 i가 있다면
         else:
             pop_list.append(i)
-    for p in pop_list:
-        try:
-            # 전체 리스트에서 index찾기
-            pop_index = answer.index(p)
-            # 전체 리스트에서 빼기
-            answer.pop(pop_index)
-            # del로 같은 결과 가능
-            # del answer[pop_index]
-            # 없는 값 pop 에러 핸들링
-        except ValueError:
-            pass
+    for p in set(pop_list):
+        # 전체 리스트에서 index찾기
+        pop_index = answer.index(p)
+        # 전체 리스트에서 빼기
+        answer.pop(pop_index)
+        # del로 같은 결과 가능
+        # del answer[pop_index]
     return ''.join(sorted(answer))
 
 
+print(solution("abcabcadc"))
+
+
 def solution(s):
+    # 이건 생각 못했다. count 함수는 알고 있지만 써야겠다는 생각이 잘 안든다.
     # for문 = set()으로 중복을 제거하고 sorted()로 정렬된 s
     # i = count로 확인된 숫자가 1개인 변수
     return ''.join([i for i in sorted(set(s)) if s.count(i) == 1])
 
 
-print(solution("abcabcadc"))
+# print(solution("abcabcadc"))
 # print(solution("abdc"))
-print(pow(2, 10))
-print(pow(2, 0))
-print(pow(2, 1))
