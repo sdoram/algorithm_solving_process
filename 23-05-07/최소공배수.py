@@ -1,0 +1,24 @@
+# https://www.acmicpc.net/problem/1934
+
+# 어디서 문제가 발생하는지 도저히 모르겠음
+def get_gcd(A, B):
+    # 무조건 A가 큰값 고정
+    if A < B:
+        A, B = B, A
+    if A % B == 0:
+        gcd = B
+    else:
+        gcd = A % B
+        while B % gcd != 0:
+            gcd = B % gcd
+        # 최대 공약수
+        # greatest common divisor
+    return gcd
+    # while B % gcd != 0:
+
+
+    # A, B = 216, 126
+    # A, B = 36, 64
+for _ in range(int(input())):
+    A, B = map(int, input().split())
+    print(A*B//get_gcd(A, B))
