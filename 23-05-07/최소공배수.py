@@ -6,16 +6,12 @@ def get_gcd(A, B):
     if A < B:
         A, B = B, A
     if A % B == 0:
-        gcd = B
-    else:
+        return B
+    if A % B != 0:
         gcd = A % B
         while B % gcd != 0:
-            gcd = B % gcd
-        # 최대 공약수
-        # greatest common divisor
+            B, gcd = gcd, B % gcd
     return gcd
-    # while B % gcd != 0:
-
 
     # A, B = 216, 126
     # A, B = 36, 64
