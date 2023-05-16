@@ -7,28 +7,28 @@
 # pop_back pop() if pop() else -1
 # front [0] if [0] else -1
 # back [-1] if [-1] else -1
-
+# deck이 아니라 Double Ended Queue
 from sys import stdin
 
-deck = []
+deque = []
 for _ in range(int(stdin.readline())):
     command = list(stdin.readline().split())
     if command[0] == "push_front":
-        deck.insert(0, command[1])
+        deque.insert(0, command[1])
     elif command[0] == "push_back":
-        deck.append(command[1])
+        deque.append(command[1])
     elif command[0] == "size":
-        print(len(deck))
+        print(len(deque))
     elif command[0] == "empty":
-        print(0 if deck else 1)
+        print(0 if deque else 1)
     try:
         if command[0] == "pop_front":
-            print(deck.pop(0))
+            print(deque.pop(0))
         elif command[0] == "pop_back":
-            print(deck.pop())
+            print(deque.pop())
         elif command[0] == "front":
-            print(deck[0])
+            print(deque[0])
         elif command[0] == "back":
-            print(deck[-1])
+            print(deque[-1])
     except IndexError:
         print(-1)
