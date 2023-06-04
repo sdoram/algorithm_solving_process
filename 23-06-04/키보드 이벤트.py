@@ -17,10 +17,10 @@ input_list2 = [
     ["2", "3", "Y"],
 ]
 sorted_list1 = sorted(input_list, key=lambda x: [int(x[1]), int(x[0])])
-# sorted_list1 = sorted(input_list, key=lambda x: x[0])
+sorted_list1 = sorted(input_list, key=lambda x: x[0])
 print(sorted_list1)
-# sorted_list2 = sorted(input_list, key=lambda x: x[1])
-# print(sorted_list2)
+sorted_list2 = sorted(input_list, key=lambda x: x[1])
+print(sorted_list2)
 
 sorted_list1 = sorted(input_list2, key=lambda x: [int(x[1]), int(x[0])])
 # sorted_list1 = sorted(input_list2, key=lambda x: int(x[0]))
@@ -29,9 +29,14 @@ print(sorted_list1)
 # print(sorted_list2)
 
 N, M = map(int, input().split())
-input_list = []
-for _ in range(M):
-    input_list.append(input().split())
-
-input_list = sorted(input_list, key=lambda x: [int(x[1]), int(x[0])])
-print("".join([x[2] for x in input_list]))
+print(
+    "".join(
+        [
+            x[2]
+            for x in sorted(
+                [input().split() for _ in range(M)],
+                key=lambda x: [int(x[1]), int(x[0])],
+            )
+        ]
+    )
+)
