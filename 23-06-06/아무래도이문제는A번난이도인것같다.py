@@ -11,3 +11,4 @@ for _ in range(int(stdin.readline())):
                 num_list.append(i)
                 break
     print("yes" if sum(num_list) == B else "no")
+# asdf
